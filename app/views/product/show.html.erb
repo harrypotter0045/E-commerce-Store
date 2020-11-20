@@ -1,0 +1,9 @@
+<h1><%= @product.name  %></h1>
+<% if @product.product_image.present?%>
+   <figure class = "image">
+    <%= image_tag @product.product_image%>
+   </figure>
+<% end%>
+<p>Model Year: <%= @product.model_year%></p>
+<p>Price: <%= @product.price%></p>
+<p>Description: <%= @product.description %></p>

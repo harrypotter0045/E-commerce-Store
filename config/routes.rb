@@ -3,4 +3,8 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get "/welcome", to: "welcome#index", as: "welcome"
+
+  get "/product/:id", to: "product#show", as: "product"
+
+  get "/products", to: "product#index", as: "products"
 end

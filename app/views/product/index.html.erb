@@ -1,0 +1,17 @@
+<h1>All Products</h1>
+<table>
+<tr>
+  <th>Name</th>
+  <th>Model Year</th>
+  <th>Price</th>
+  <th>Category</th>
+</tr>
+<% @products.each do |p| %>
+    <tr>
+      <td><%= link_to p.name, p %></td>
+      <td><%= p.model_year%></td>
+      <td><%= p.price%></td>
+      <td><%= p.category.name %></td>
+    </tr>
+  <% end %>
+</table>
