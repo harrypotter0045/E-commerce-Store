@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :products, only: :show
   resources :categories, only: :show
+  resources :cart, only: %i[create destroy]
 
   get "search", to: "products#search", as: "search" # search_path
 
