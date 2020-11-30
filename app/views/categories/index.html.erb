@@ -3,4 +3,12 @@
 
   <% @categories.each do |c|%>
   <li><%= link_to c.name, c%></li>
-  <%end%>
+<%end%>
+  <%= paginate @products%>
+  <h1>All Products</h1>
+  <div>
+  <%= render partial: 'products/product', collection: @products, locals: {detail: false}%>
+
+  </div>
+
+
