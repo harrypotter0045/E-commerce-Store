@@ -1,5 +1,6 @@
 <h3><%= @category.name %></h3>
 <h4>Products of this Category</h4>
 <div>
-  <%= render partial: 'products/products'%>
+  <%= render partial: 'products/product',
+             collection: @category.products%>
 </div>
