@@ -4,7 +4,7 @@ ActiveAdmin.register Product do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :name, :model_year, :price, :category_id, :description, :product_image
+  permit_params :name, :model_year, :price, :category_id, :description, :product_image, :sale_stat, :sale_price
 
   form do |f|
     f.semantic_errors # shows errors on :base
