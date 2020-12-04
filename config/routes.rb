@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
   resources :products, only: :show
+  resources :abouts, only: :index
   resources :categories, only: :show
   resources :cart, only: %i[create destroy]
 
+  get "filter", to: "products#filter", as: "filter"
   get "search", to: "products#search", as: "search" # search_path
+  get "about", to: "about#index", as: "about"
 
   root to: "categories#index"
 

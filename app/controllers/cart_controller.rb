@@ -17,9 +17,4 @@ class CartController < ApplicationController
     redirect_to_root_path
   end
 
-  def remove
-    id = params[:id].to_i
-    session[:cart].push(id)
-    redirect_to_root_path
-  end
 end
