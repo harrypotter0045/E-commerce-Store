@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_11_071604) do
+ActiveRecord::Schema.define(version: 2020_12_11_080818) do
 
   create_table "abouts", force: :cascade do |t|
     t.text "about"
@@ -84,7 +84,9 @@ ActiveRecord::Schema.define(version: 2020_12_11_071604) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "name"
     t.string "phone"
+    t.integer "province_id", null: false
     t.index ["email"], name: "index_customers_on_email", unique: true
+    t.index ["province_id"], name: "index_customers_on_province_id"
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
 
@@ -115,7 +117,15 @@ ActiveRecord::Schema.define(version: 2020_12_11_071604) do
     t.string "image_link"
   end
 
+  create_table "provinces", force: :cascade do |t|
+    t.string "name"
+    t.decimal "tax_rate"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "customers", "provinces"
   add_foreign_key "order_items", "orders"
   add_foreign_key "order_items", "products"
 end

@@ -18,6 +18,22 @@
     <%= f.text_field :phone%>
   </div>
 
+  <div class="field">
+    <%= f.select :province_id, options_for_select([["Alberta", 1],
+                                               ["B.C", 2]],
+                                               ["Manitoba", 3],
+                                               ["New Brunswick", 4],
+                                               ["Newfoundland and Labrado", 5],
+                                               ["Northwest Territories", 6],
+                                               ["Nova Scotia", 7],
+                                               ["Nunavut", 8],
+                                               ["Ontario", 9],
+                                               ["P.E.I", 10],
+                                               ["Quebec", 11],
+                                               ["Saskatchewan", 12],
+                                               ["Yukon", 13]) %>
+  </div>
+
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
