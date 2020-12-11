@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :customers
   resources :products, only: :show
   resources :abouts, only: :index
   resources :categories, only: :show
