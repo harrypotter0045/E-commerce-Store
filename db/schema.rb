@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_11_080818) do
+ActiveRecord::Schema.define(version: 2020_12_11_122827) do
 
   create_table "abouts", force: :cascade do |t|
     t.text "about"
@@ -122,6 +122,8 @@ ActiveRecord::Schema.define(version: 2020_12_11_080818) do
     t.decimal "tax_rate"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.decimal "gst"
+    t.decimal "pst"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

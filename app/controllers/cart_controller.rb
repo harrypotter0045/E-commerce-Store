@@ -1,20 +1,17 @@
 class CartController < ApplicationController
   def create
     id = params[:id].to_i
-    session[:cart] << id unless session[:cart].include?(id)
+    session[:cart] << id
     redirect_to root_path
   end
 
   def destroy
     id = params[:id].to_i
-    session[:cart].delete(id)
+    if params[:qty] == "All"
+      session[:cart].delete(id)
+    elsif params[:qty] == "1"
+      session[:cart].delete_at(session[:cart].index(id) || session[:cart].length)
+    end
     redirect_to root_path
   end
-
-  def remove
-    id = params[:id].to_i
-    session[:cart].delete_at(x.index(id))
-    redirect_to_root_path
-  end
-
 end

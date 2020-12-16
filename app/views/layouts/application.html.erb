@@ -8,23 +8,38 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-<!--
+
+<% if customer_signed_in? %>
+    <%= link_to "Log out", destroy_customer_session_path, :method=>'delete'%>
+<% else %>
+    <%= link_to "login", new_customer_session_path %>
+<% end %>
+
+<% if customer_signed_in? %>
+<%= debug session[:cart] %>
    <ul>
+   Cart
           <li>
-            Cart
-            <% if cart.present? %>
+              <% if cart.present? %>
               <sup><%= cart.size %></sup>
               <ul>
                 <% cart.each do |product| %>
                   <li>
-                    <%= product.name %> <%= link_to '❌', cart_path(product), method: :delete %>
+                    <%= product.name %>
+                    <%= link_to '🡩', cart_create_path(product), method: :post %>
+                    <%= link_to '🡣', cart_destroy_path(product, qty: "1"), method: :delete %>
+                    <%= link_to '❌', cart_destroy_path(product, qty: "all"), method: :delete %>
+
                   </li>
                 <% end %>
               </ul>
             <% end %>
           </li>
-        </ul>
--->
+    </ul>
+<%end%>
+
+
+
   <body>
     <%= render partial: 'products/search', locals: {detail: false}%>
     <%= yield %>
