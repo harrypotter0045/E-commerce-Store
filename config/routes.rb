@@ -4,6 +4,12 @@ Rails.application.routes.draw do
   resources :abouts, only: :index
   resources :categories, only: :show
 
+  scope "/checkout" do
+    post "create", to: "checkout#create", as: "checkout_create"
+    get "cancel", to: "checkout#cancel", as: "checkout_cancel"
+    get "success", to: "checkout#success", as: "checkout_success"
+  end
+
   post "order", to: "order#create", as: "order/create"
   post "cart/:id", to: "cart#create", as: "cart/create"
   delete "cart/:id&qty=:qty", to: "cart#destroy", as: "cart/destroy"
