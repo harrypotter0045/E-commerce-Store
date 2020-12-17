@@ -13,3 +13,35 @@
  *= require_tree .
  *= require_self
  */
+
+
+body {
+  max-width: 800px;
+  margin: auto;
+  font-size: medium;
+  background-color:aquamarine;
+  background-image: "background.jpg";
+}
+
+table, th, td, tr {
+  border: 1px solid black;
+}
+
+ul li {
+  background: #F5FFFA;
+  margin: 5px;
+}
+
+ul {
+  background: #EE82EE	;
+  padding: 20px;
+}
+
+button {
+  transition-duration: 0.4s;
+}
+
+button:hover {
+  background-color: #4CAF50; /* Green */
+  color: white;
+}
