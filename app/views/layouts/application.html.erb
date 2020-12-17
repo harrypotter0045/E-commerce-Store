@@ -17,12 +17,16 @@
 <% end %>
 
 <% if customer_signed_in? %>
+<ul>
+  <li><a href="/">All products</a></li>
+  <li><%= link_to "Your Orders", orders_path(current_customer.id)%></li>
+  <li><a href="/about">About</a></li>
+</ul>
 <%= debug session[:cart]%>
+  Cart
    <ul>
-   Cart
           <li>
               <% if cart.present? %>
-              <sup><%= cart.size %></sup>
               <ul>
                 <% cart.each do |product| %>
                   <li>
@@ -39,10 +43,6 @@
     </ul>
 <%end%>
 
-
-
-  <body>
     <%= render partial: 'products/search', locals: {detail: false}%>
     <%= yield %>
-  </body>
 </html>

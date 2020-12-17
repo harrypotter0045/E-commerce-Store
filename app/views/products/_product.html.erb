@@ -15,12 +15,14 @@
    <p>Description: <%= product.description %></p>
 <%else%>
    <ul>
-      <li><%= link_to product.name, product%></li>
+      <li><%= link_to product.name, product%>
       <% if product.sale_stat %>
-         <p>Sale Price: <%= product.sale_price%></p>
+         Sale Price: <%= product.sale_price%>
+
       <% else%>
-         <p>Regular Price: <%= product.price%></p>
+         Regular Price: <%= product.price%>
       <%end%>
+      </li>
    </ul>>
 <% end %>
 <% if customer_signed_in? %>

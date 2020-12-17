@@ -31,6 +31,8 @@ class CheckoutController < ApplicationController
       order = Order.find(params[:order_id])
       order.update(status: "paid", stripe_id: @payment_intent["id"])
     end
+
+    session.delete("cart")
   end
 
   def cancel; end

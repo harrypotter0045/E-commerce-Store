@@ -1,5 +1,6 @@
+
 <%= form_with(url: root_path,  local: true ,method: "get") do %>
-   <%= label_tag(:q, "Filter by:") %>
+   <p>Filter by</p>
    <%= check_box_tag(:sale)%>
    <%= label_tag(:sale, "On Sale")%>
    <%= check_box_tag(:new)%>

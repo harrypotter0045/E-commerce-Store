@@ -1,5 +1,6 @@
 <%if detail%>
-  <h2><%= order.id%></h2>
+  <h1>Order Details</h1>
+  <h2>Order Number: <%= order.id%></h2>
   <ul>
       <% order.order_items.each do |i|%>
       <li><%= i.product.name%></li>
