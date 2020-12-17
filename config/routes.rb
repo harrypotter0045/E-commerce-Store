@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     get "success", to: "checkout#success", as: "checkout_success"
   end
 
+  get "orders/:cus_id&order_id=:order_id", to: "order#show", as: "order"
+  get "orders/:cus_id", to: "order#index", as: "orders"
   post "order", to: "order#create", as: "order/create"
   post "cart/:id", to: "cart#create", as: "cart/create"
   delete "cart/:id&qty=:qty", to: "cart#destroy", as: "cart/destroy"

@@ -22,4 +22,13 @@ class OrderController < ApplicationController
       OrderItem.create(order_id: @order.id, product_id: product.id)
     end
   end
+
+  def index
+    @orders = Order.find_by(customer_id: params[:cus_id])
+    @current_cus = Customer.find(params[:cus_id])
+  end
+
+  def show
+    @order = Order.find(params[:order_id])
+  end
 end

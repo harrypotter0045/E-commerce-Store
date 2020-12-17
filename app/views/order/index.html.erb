@@ -1,0 +1,11 @@
+<h1><%= @current_cus.name%></h1>
+<div>
+  <table>
+  <tr>
+    <th>Order Number</th>
+    <th>Total Price</th>
+  </tr>
+  <%= render partial: 'order/order', collection: @current_cus.orders, locals: {detail: false}%>
+  </table>
+
+</div>

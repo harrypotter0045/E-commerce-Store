@@ -1,0 +1,16 @@
+<%if detail%>
+  <h2><%= order.id%></h2>
+  <ul>
+      <% order.order_items.each do |i|%>
+      <li><%= i.product.name%></li>
+      <%end%>
+  </ul>
+  <p>PST: <%= order.gst%></p>
+  <p>GST: <%= order.pst%></p>
+  <p>Total: <%= order.total_price%></p>
+<% else%>
+  <tr>
+    <td><%= link_to order.id, order_path(order.customer_id, order_id: order.id)%></td>
+    <td><%= order.total_price%></td>
+  </tr>
+<%end%>

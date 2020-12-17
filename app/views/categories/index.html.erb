@@ -1,8 +1,10 @@
 
-<ul><h1>All Categories</h1></ul>
+<h1>All Categories</h1>
+<ul>
   <% @categories.each do |c|%>
   <li><%= link_to c.name, c%></li>
 <%end%>
+</ul>
   <%= render partial: 'products/filter', locals: {detail: false}%>
 
   <h1>All Products</h1>
