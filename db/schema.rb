@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_17_071027) do
+ActiveRecord::Schema.define(version: 2020_12_17_111723) do
 
   create_table "abouts", force: :cascade do |t|
     t.text "about"
@@ -107,6 +107,7 @@ ActiveRecord::Schema.define(version: 2020_12_17_071027) do
     t.decimal "total_price"
     t.decimal "pst"
     t.decimal "gst"
+    t.string "stripe_id"
     t.index ["customer_id"], name: "index_orders_on_customer_id"
   end
 
