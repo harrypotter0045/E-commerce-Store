@@ -7,7 +7,7 @@ class CartController < ApplicationController
 
   def destroy
     id = params[:id].to_i
-    if params[:qty] == "All"
+    if params[:qty] == "all"
       session[:cart].delete(id)
     elsif params[:qty] == "1"
       session[:cart].delete_at(session[:cart].index(id) || session[:cart].length)
