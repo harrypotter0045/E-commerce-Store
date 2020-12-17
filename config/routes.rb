@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :abouts, only: :index
   resources :categories, only: :show
 
+  post "order", to: "order#create", as: "order/create"
   post "cart/:id", to: "cart#create", as: "cart/create"
   delete "cart/:id&qty=:qty", to: "cart#destroy", as: "cart/destroy"
   get "search", to: "products#search", as: "search" # search_path

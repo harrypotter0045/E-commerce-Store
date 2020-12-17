@@ -7,6 +7,7 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script scr= "https://js.stripe.com/v3"></script>
   </head>
 
 <% if customer_signed_in? %>
@@ -16,7 +17,6 @@
 <% end %>
 
 <% if customer_signed_in? %>
-<%= debug session[:cart] %>
    <ul>
    Cart
           <li>
@@ -29,10 +29,10 @@
                     <%= link_to '🡩', cart_create_path(product), method: :post %>
                     <%= link_to '🡣', cart_destroy_path(product, qty: "1"), method: :delete %>
                     <%= link_to '❌', cart_destroy_path(product, qty: "all"), method: :delete %>
-
                   </li>
                 <% end %>
               </ul>
+            <%=  link_to 'Checkout', order_create_path, method: :post%>
             <% end %>
           </li>
     </ul>

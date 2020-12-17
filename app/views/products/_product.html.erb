@@ -23,7 +23,7 @@
       <%end%>
    </ul>>
 <% end %>
-
+<% if customer_signed_in? %>
     <% if cart.include?(product) %>
       <%= button_to cart_destroy_path(product, qty: "All"), method: :delete do %>
         Remove From Cart
@@ -33,3 +33,5 @@
       Add To Cart
       <% end %>
     <% end %>
+ <% end %>
+

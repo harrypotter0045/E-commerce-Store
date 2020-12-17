@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :cart
   def cart
-    Product.find(session[:cart])
+    Product.find(session[:cart]) if session[:cart]
   end
 
   protect_from_forgery with: :exception

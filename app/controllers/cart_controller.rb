@@ -1,7 +1,7 @@
 class CartController < ApplicationController
   def create
     id = params[:id].to_i
-    session[:cart] << id
+    session[:cart].push(id)
     redirect_to root_path
   end
 
